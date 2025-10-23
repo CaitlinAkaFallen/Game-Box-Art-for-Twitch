@@ -1,88 +1,120 @@
 body {
-  background-color: #000000;
+  background: radial-gradient(circle at center, #0a0a0a 0%, #000000 100%);
   color: #ffffff;
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  -webkit-backdrop-filter: blur(0px);
-  backdrop-filter: blur(0px);
-
+  overflow: hidden;
 }
 
-.datetime-container {
-  text-align: center;
+body {
+  background: #000;
+  color: #fff;
+  font-family: "Poppins", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* ====== Layout Container ====== */
+.stream-layout {
+  display: flex;
+  align-items: center;
+  gap: 30px;
   padding: 30px;
-  border-radius: 15px;
-  background: rgba(31, 31, 31, 0.705);
-  -webkit-backdrop-filter: blur(15px);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  animation: rainbowShadow 10s linear infinite;
-  color: white;
-  box-shadow: 0 0 15px red;
 }
 
-@keyframes rainbowShadow {
-  0%   { box-shadow: 0 0 15px red; }
-  14%  { box-shadow: 0 0 15px orange; }
-  28%  { box-shadow: 0 0 15px yellow; }
-  42%  { box-shadow: 0 0 15px green; }
-  57%  { box-shadow: 0 0 15px blue; }
-  71%  { box-shadow: 0 0 15px indigo; }
-  85%  { box-shadow: 0 0 15px violet; }
-  100% { box-shadow: 0 0 15px red; }
-}
-
-#weekday-status, #date {
-  animation: pulse 2s infinite;
-}
-
-#weekday-status {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-#date {
-  font-size: 1.6rem;
-}
-
-#game-title {
-  font-size: 1.3rem;
-  color: #08f8e4;
-  margin-top: 20px;
-  font-weight: bold;
-}
-
-#streamTitle {
-  margin-top: 10px;
-  font-size: 1rem;
-  color: #ffffff;
-}
-
+/* ====== Game Cover ====== */
 #game-cover {
-  display: block;              /* allows margin auto to work */
-  margin: 15px auto 0;         /* centers horizontally */
-  border-radius: 10px;
+  border-radius: 20px;
   width: 200px;
   height: auto;
-  box-shadow: 0 0 10px #00ffdd;
-  transition: transform 0.3s ease;
+  box-shadow: 0 0 20px #00ffee;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #game-cover:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 30px #00ffdd;
 }
 
+/* ====== Info Container ====== */
+.datetime-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 300px;
+}
+
+/* ====== Shared Box Style ====== */
+.info-box {
+  background: rgba(20, 20, 20, 0.75);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  animation: rainbowGlow 12s linear infinite;
+  transition: transform 0.3s ease;
+}
+.info-box:hover {
+  transform: scale(1.02);
+}
+
+/* ====== Rainbow Glow Animation ====== */
+@keyframes rainbowGlow {
+  0%   { box-shadow: 0 0 20px red; }
+  14%  { box-shadow: 0 0 20px orange; }
+  28%  { box-shadow: 0 0 20px yellow; }
+  42%  { box-shadow: 0 0 20px green; }
+  57%  { box-shadow: 0 0 20px blue; }
+  71%  { box-shadow: 0 0 20px indigo; }
+  85%  { box-shadow: 0 0 20px violet; }
+  100% { box-shadow: 0 0 20px red; }
+}
+
+/* ====== Text Styles ====== */
+#weekday-status {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #00d9ff;
+  margin-bottom: 5px;
+}
+#date {
+  font-size: 1rem;
+  opacity: 0.85;
+  color: #ccc;
+}
+
+#next-stream {
+  font-size: 1rem;
+  color: #ff70ff;
+  font-weight: 600;
+  text-shadow: 0 0 10px #ff70ff;
+}
+
+#game-title {
+  font-size: 1.2rem;
+  color: #00f8e7;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+#streamTitle {
+  font-size: 1rem;
+  opacity: 0.85;
+  color: #fff;
+}
+
+/* ====== Pulse Accent (Optional) ====== */
 @keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.05); opacity: 0.85; }
+  0%   { transform: scale(1); opacity: 1; }
+  50%  { transform: scale(1.03); opacity: 0.85; }
   100% { transform: scale(1); opacity: 1; }
 }
-
-
-
-
