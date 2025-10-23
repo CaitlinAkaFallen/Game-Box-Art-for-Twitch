@@ -34,12 +34,16 @@ document.addEventListener("DOMContentLoaded", async function () {
   const username = "TWITCH_USERNAME_HERE";
 
   // === HTML Elements ===
-
   const streamTitleEl = document.getElementById("streamTitle");
   const gameTitleEl = document.getElementById("game-title");
   const gameCoverEl = document.getElementById("game-cover");
+  const weekdayStatusEl = document.getElementById("weekday-status");
+  const dateEl = document.getElementById("date");
+  const nextStreamEl = document.getElementById("next-stream"); // <-- Add this in your HTML
 
-  // === Twitch API Fetch ===
+  // ==============================
+  //  🎮 FETCH TWITCH STREAM DATA
+  // ==============================
   async function fetchTwitchStreamData() {
     try {
       // --- Get User ID ---
@@ -77,18 +81,50 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   }
 
-  // === Date Display ===
+  // ==============================
+  //  📅 DATE DISPLAY
+  // ==============================
   function updateDateDisplay() {
     const now = new Date();
     const weekdayName = now.toLocaleDateString(undefined, { weekday: "long" });
     const fullDate = now.toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" });
-    document.getElementById("weekday-status").textContent = weekdayName;
-    document.getElementById("date").textContent = fullDate;
+    if (weekdayStatusEl) weekdayStatusEl.textContent = weekdayName;
+    if (dateEl) dateEl.textContent = fullDate;
   }
 
+  // ==============================
+  //  🔔 NEXT STREAM DETECTOR
+  // ==============================
+  function detectNextStreamDay() {
+    // Your fixed streaming days (0=Sunday, 1=Monday, 2=Tuesday,3=Wednesday, 4=Thursday. 5= Friday ,6=Saturday)
+    const streamDays = [3, 5, 6]; // Wednesday, Friday, Saturday  // You can change  to what you stream days by the numbers only
+
+    const now = new Date();
+    const today = now.getDay();
+
+    // Find the next upcoming stream day
+    let nextStreamDay = streamDays.find(day => day > today);
+    if (nextStreamDay === undefined) nextStreamDay = streamDays[0]; // Loop back to next week
+
+    // Calculate date of next stream
+    const daysUntilNext = (nextStreamDay + 7 - today) % 7 || 7;
+    const nextStreamDate = new Date(now);
+    nextStreamDate.setDate(now.getDate() + daysUntilNext);
+
+    const dayName = nextStreamDate.toLocaleDateString(undefined, { weekday: "long" });
+    const dateStr = nextStreamDate.toLocaleDateString(undefined, { month: "long", day: "numeric" });
+
+    // Update display element
+    if (nextStreamEl) {
+      nextStreamEl.textContent = `🎥 Upcoming Stream: ${dayName}, ${dateStr}`;
+    }
+  }
+
+  // === INITIALIZE ===
   updateDateDisplay();
+  detectNextStreamDay();
   await fetchTwitchStreamData();
 
-  // Optionally refresh Twitch info every 5 minutes
+  // Refresh every 5 minutes
   setInterval(fetchTwitchStreamData, 5 * 60 * 1000);
 });
