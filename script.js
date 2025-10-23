@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   // - Client Type: Confidential
   // This ID identifies your Twitch application.
   //- Client Secret: Keep this private! But use it to generate OAuth tokens on https://twitchtokengenerator.com
-  const clientId = "gp762nuuoqcoxypju8c569th9wz7q5";
+  const clientId = "CLIENT_ID_HERE";
 
   // 👉 OAuth Token:
   // Generate this at:
@@ -27,11 +27,11 @@ document.addEventListener("DOMContentLoaded", async function () {
   //   • channel:read:stream_key
   //
   // This token allows your app to access Twitch API data securely.
-  const oauthToken = "0s89vmye9hk95jiifrpion53n6cy9p";
+  const oauthToken = "OAUTH_TOKEN_HERE";
 
   // 👉 Twitch Username:
   // This is the account you want to fetch stream or game data for.
-  const username = "fallenoneart";
+  const username = "TWITCH_USERNAME_HERE";
 
   // === HTML Elements ===
 
@@ -92,9 +92,3 @@ document.addEventListener("DOMContentLoaded", async function () {
   // Optionally refresh Twitch info every 5 minutes
   setInterval(fetchTwitchStreamData, 5 * 60 * 1000);
 });
-
-
-
-
-
-
