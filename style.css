@@ -1,0 +1,88 @@
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+
+}
+
+.datetime-container {
+  text-align: center;
+  padding: 30px;
+  border-radius: 15px;
+  background: rgba(31, 31, 31, 0.705);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: rainbowShadow 10s linear infinite;
+  color: white;
+  box-shadow: 0 0 15px red;
+}
+
+@keyframes rainbowShadow {
+  0%   { box-shadow: 0 0 15px red; }
+  14%  { box-shadow: 0 0 15px orange; }
+  28%  { box-shadow: 0 0 15px yellow; }
+  42%  { box-shadow: 0 0 15px green; }
+  57%  { box-shadow: 0 0 15px blue; }
+  71%  { box-shadow: 0 0 15px indigo; }
+  85%  { box-shadow: 0 0 15px violet; }
+  100% { box-shadow: 0 0 15px red; }
+}
+
+#weekday-status, #date {
+  animation: pulse 2s infinite;
+}
+
+#weekday-status {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+#date {
+  font-size: 1.6rem;
+}
+
+#game-title {
+  font-size: 1.3rem;
+  color: #08f8e4;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#streamTitle {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+#game-cover {
+  display: block;              /* allows margin auto to work */
+  margin: 15px auto 0;         /* centers horizontally */
+  border-radius: 10px;
+  width: 200px;
+  height: auto;
+  box-shadow: 0 0 10px #00ffdd;
+  transition: transform 0.3s ease;
+}
+
+#game-cover:hover {
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.85; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+
+
+
