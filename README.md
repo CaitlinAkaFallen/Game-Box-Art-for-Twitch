@@ -34,5 +34,5 @@ DOWNLOADthe full folder and extract is before proceeding
   // 👉 Twitch Username:
   // This is the account you want to fetch stream or game data for.
 
-// Use Visual Studio Code to put your  HTML,CSS and JavaScript 
+// Use Visual Studio Code or other code editors  to put your  HTML,CSS and JavaScript 
 
