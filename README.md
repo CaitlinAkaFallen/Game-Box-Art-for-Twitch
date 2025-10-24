@@ -1,4 +1,4 @@
-DOWNLOADthe full folder and extract is before proceeding
+DOWNLOAD the full folder and extract is before proceeding
 
 
 
